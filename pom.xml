@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>zebrunnerIntegration</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <selenium-version>4.0.0</selenium-version>
+        <zebrunner-agent.version>1.6.6</zebrunner-agent.version>
+    </properties>
+    <build>
+
+
+
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <release>${java.version}</release>
+                </configuration>
+            </plugin>
+
+
+	<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-dependency-plugin</artifactId>
+		<version>3.1.2</version>
+		<executions>
+			<execution>
+				<id>copy</id>
+				<phase>initialize</phase>
+				<goals>
+					<goal>copy</goal>
+				</goals>
+			</execution>
+		</executions>
+		<configuration>
+			<artifactItems>
+				<artifactItem>
+					<groupId>com.zebrunner</groupId>
+					<artifactId>agent-core</artifactId>
+					<version>RELEASE</version>
+					<outputDirectory>${project.build.directory}/agent</outputDirectory>
+					<destFileName>zebrunner-core-agent.jar</destFileName>
+				</artifactItem>
+			</artifactItems>
+		</configuration>
+	</plugin>
+	<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-surefire-plugin</artifactId>
+		<version>3.0.0-M4</version>
+		<configuration>
+			<argLine>-javaagent:${project.build.directory}/agent/zebrunner-core-agent.jar</argLine>
+		</configuration>
+	</plugin>
+</plugins>
+
+
+
+    </build>
+    <dependencies>
+    <dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-java</artifactId>
+        <version>${selenium-version}</version>
+    </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.0.3</version>
+        </dependency>
+
+
+
+            <!-- other project dependencies -->
+            <dependency>
+                <groupId>com.zebrunner</groupId>
+                <artifactId>agent-testng</artifactId>
+                <version>1.4.0</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- optional -->
+            <dependency>
+                <groupId>net.bytebuddy</groupId>
+                <artifactId>byte-buddy</artifactId>
+                <version>1.10.18</version>
+                <scope>test</scope>
+            </dependency>
+
+
+    </dependencies>
+
+
+
+</project>
