@@ -1,5 +1,6 @@
 
 
+import org.junit.Assert;
 import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -13,8 +14,8 @@ public class ZebRunnerClass {
 //    String username = "rishabhps";
 //    String accessKey = "Qzln3pCCV7YvCYeQ7EmksXD0hSxR5STjBAK3Vh0gilJpIOllR1";
 
-    String username = System.getenv("LT_USERNAME") == null ? "veenadevi" : System.getenv("LT_USERNAME");
-    String authkey = System.getenv("LT_ACCESS_KEY") == null ? "I5ZgCAndy1vvQ1LGRjDl071RVaSt6y7nb4CMemPpu1FN8SjUb9" : System.getenv("LT_ACCESS_KEY");
+    String username = System.getenv("LT_USERNAME") == null ? "" : System.getenv("LT_USERNAME");
+    String authkey = System.getenv("LT_ACCESS_KEY") == null ? "" : System.getenv("LT_ACCESS_KEY");
     String hub = "@hub.lambdatest.com/wd/hub";
     @BeforeTest
     public void setUp() throws Exception {
@@ -39,6 +40,7 @@ public class ZebRunnerClass {
             driver.findElement(By.xpath("//button[normalize-space()='Resources']")).click();
             driver.findElement(By.linkText("Blog")).click();
             System.out.println("blog page Title"+driver.getTitle());
+            Assert.assertTrue(true);
             driver.quit();
         } catch (Exception e) {
             System.out.println(e.getMessage());
