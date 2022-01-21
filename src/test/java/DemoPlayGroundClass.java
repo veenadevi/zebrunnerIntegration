@@ -22,7 +22,7 @@ public class DemoPlayGroundClass {
     public void setUp() throws Exception {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("build", "ZebRunner_Demo_Build");
-        capabilities.setCapability("name", "SampleRun1");
+        capabilities.setCapability("name", "LT_PlayGroundTests");
         capabilities.setCapability("platform", "MacOS Monterey");
         capabilities.setCapability("browserName", "Safari");
         capabilities.setCapability("version","15.0");
