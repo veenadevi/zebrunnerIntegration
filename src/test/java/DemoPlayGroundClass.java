@@ -1,4 +1,5 @@
 
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
@@ -28,15 +29,30 @@ public class DemoPlayGroundClass {
 
         try {
             driver = new RemoteWebDriver(new URL("https://" + username + ":" + authkey + hub), capabilities);
-
+            driver.get("https://www.lambdatest.com/selenium-playground/");
         } catch (MalformedURLException e) {
             System.out.println("Incorrect grid URL");
         }
     }
     @Test(enabled = true)
-    public void testScript() throws Exception {
+    public void testSampleFormDemo() throws Exception {
         try {
-            driver.get("https://www.lambdatest.com/selenium-playground/");
+
+            driver.findElement(By.linkText("Checkbox Demo")).click();
+           WebElement checkBox=driver.findElement(By.id("isAgeSelected"));
+            checkBox.click();
+
+            Assert.assertTrue(checkBox.isSelected());
+            driver.quit();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Test(enabled = true)
+    public void testCheckBox() throws Exception {
+        try {
+
             driver.findElement(By.linkText("Simple Form Demo")).click();
             String userMessage="New Mesasge";
             driver.findElement(By.id("user-message")).sendKeys(userMessage);
