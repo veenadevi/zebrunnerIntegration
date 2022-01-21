@@ -46,7 +46,7 @@ public class DemoPlayGroundClass {
             driver.findElement(By.id("showInput")).click();
             String printedText=driver.findElement(By.id("message")).getText();
             System.out.println("blog page Title"+driver.getTitle());
-            Assert.assertTrue(userMessage==(printedText));
+            Assert.assertTrue("WrongMesasge".equals(printedText));
             driver.quit();
         } catch (Exception e) {
             System.out.println(e.getMessage());
