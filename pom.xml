@@ -25,7 +25,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <release>${java.version}</release>
+                    <release>10</release>
                 </configuration>
             </plugin>
 
@@ -59,9 +59,13 @@
 		<groupId>org.apache.maven.plugins</groupId>
 		<artifactId>maven-surefire-plugin</artifactId>
 		<version>3.0.0-M4</version>
-		<configuration>
-			<argLine>-javaagent:${project.build.directory}/agent/zebrunner-core-agent.jar</argLine>
-		</configuration>
+        <configuration>
+            <suiteXmlFiles>
+                <suiteXmlFile>testSuite.xml</suiteXmlFile>
+            </suiteXmlFiles>
+            <argLine>-javaagent:${project.build.directory}/agent/zebrunner-core-agent.jar</argLine>
+        </configuration>
+
 	</plugin>
 </plugins>
 
@@ -97,7 +101,16 @@
                 <scope>test</scope>
             </dependency>
 
-
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+        </dependency>
     </dependencies>
 
 
