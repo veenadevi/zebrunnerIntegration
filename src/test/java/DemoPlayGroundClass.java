@@ -21,9 +21,9 @@ public class DemoPlayGroundClass {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("build", "ZebRunner_Demo_Build");
         capabilities.setCapability("name", "SampleRun1");
-        capabilities.setCapability("platform", "Windows 10");
-        capabilities.setCapability("browserName", "Chrome");
-        capabilities.setCapability("version","97.0");
+        capabilities.setCapability("platform", "");
+        capabilities.setCapability("browserName", "");
+        capabilities.setCapability("version","");
 
         try {
             driver = new RemoteWebDriver(new URL("https://" + username + ":" + authkey + hub), capabilities);
