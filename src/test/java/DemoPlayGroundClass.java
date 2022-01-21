@@ -1,5 +1,6 @@
 
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -47,5 +48,10 @@ public class DemoPlayGroundClass {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+    @AfterTest
+    public void teardown(){
+        driver.quit();
+
     }
 }
