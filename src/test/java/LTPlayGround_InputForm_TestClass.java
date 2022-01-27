@@ -29,7 +29,7 @@ public class LTPlayGround_InputForm_TestClass {
     @BeforeTest
     public void setUp() throws Exception {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("build", "ZebRunner_Demo_Build_2");
+        capabilities.setCapability("build", "Demo_Build_2");
         capabilities.setCapability("name", "LTPlayGround_InputForm");
         capabilities.setCapability("platform", "MacOS Monterey");
         capabilities.setCapability("browserName", "Safari");

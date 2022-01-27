@@ -26,7 +26,7 @@ public class LTPlayGround_Checkbox_TestClass {
     @BeforeTest
     public void setUp() throws Exception {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("build", "ZebRunner_Demo_Build_1");
+        capabilities.setCapability("build", "Demo_Build_1");
         capabilities.setCapability("name", "LTPlayGround_SimpleForm");
         capabilities.setCapability("platform", "Windows 11");
     	capabilities.setCapability("browserName", "Firefox");
