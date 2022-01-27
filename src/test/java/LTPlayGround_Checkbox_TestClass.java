@@ -57,7 +57,7 @@ public class LTPlayGround_Checkbox_TestClass {
             driver.get("https://www.lambdatest.com/selenium-playground/checkbox-demo");
            
             File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-   	     	FileHandler.copy(source, new File("CheckBox LT_PlayGround"));
+   	     	FileHandler.copy(source, new File("CheckBox LT_PlayGround.png"));
    	     	
    	     	WebElement checkBox=driver.findElement(By.id("isAgeSelected"));
    	     	Assert.assertTrue(checkBox.isSelected());
