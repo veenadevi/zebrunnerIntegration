@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="BDD Test Suite" verbose="1" parallel="methods"
-       thread-count="2" configfailurepolicy="continue">
-    <test name="Lambdatest PlayGound" annotations="JDK"
-          preserve-order="true">
+<suite name=" Test Suite" verbose="1"  thread-count="2"  configfailurepolicy="continue">
+    <test name="Lambdatest PlayGound" thread-count="2" annotations="JDK" parallel="classes" preserve-order="true">
         <classes>
-            <class name="DemoPlayGroundClass" />
+            <class name="LTPlayGround_Checkbox_TestClass" />
+            <class name="LTPlayGround_InputForm_TestClass" />
         </classes>
     </test>
 </suite>
