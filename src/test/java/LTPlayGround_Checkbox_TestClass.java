@@ -27,7 +27,7 @@ public class LTPlayGround_Checkbox_TestClass {
     public void setUp() throws Exception {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("build", "Demo_Build_1");
-        capabilities.setCapability("name", "LTPlayGround_SimpleForm");
+        capabilities.setCapability("name", "LTPlayGround_CheckBox");
         capabilities.setCapability("platform", "Windows 11");
     	capabilities.setCapability("browserName", "Firefox");
     	capabilities.setCapability("version","95.0");
