@@ -1,11 +1,13 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.*;
 
@@ -95,8 +97,14 @@ public class LTPlayGround_InputForm_TestClass {
             }
         }
 
-    @AfterTest
-    public void teardown(){
+    @AfterMethod
+    public void teardown(ITestResult result){
+        if(result.isSuccess()){
+            ((JavascriptExecutor) driver).executeScript("lambda-status=passed");
+        }
+       else{
+            ((JavascriptExecutor) driver).executeScript("lambda-status=failed");
+        }
      driver.quit();
 
     }

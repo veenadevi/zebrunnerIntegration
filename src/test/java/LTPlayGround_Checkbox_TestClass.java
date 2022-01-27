@@ -4,16 +4,15 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -73,7 +72,13 @@ public class LTPlayGround_Checkbox_TestClass {
 
 
     @AfterMethod
-    public void teardown(){
+    public void teardown(ITestResult result ){
+        if(result.isSuccess()){
+            ((JavascriptExecutor) driver).executeScript("lambda-status=passed");
+        }
+        else{
+            ((JavascriptExecutor) driver).executeScript("lambda-status=failed");
+        }
         driver.quit();
 
     }
